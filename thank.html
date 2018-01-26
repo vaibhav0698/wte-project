@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>
+		feedback
+	</title>
+	<style>
+
+
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+
+
+    inset 0.3em 0.3em 0 0 var(--color);
+    &:hover, &:focus {
+    box-shadow: 
+      0 0 0 0 var(--hover),
+      inset 6em 3.5em 0 0 var(--hover);
+  }
+
+
+$colors: ( 
+  raise: #ffa260, 
+);
+
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: $color;
+    --hover: adjust-hue($color, 45deg);
+  }
+}
+
+button {  
+  color: var(--color);
+  transition: 0.25s;
+  
+  &:hover,
+  &:focus { 
+    border-color: var(--hover);
+    color: #fff;
+  }
+}
+
+body {
+  color: #fff;
+  background: hsl(227, 10%, 10%);
+  font: 300 1em 'Fira Sans', sans-serif;
+  
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+h1 { font-weight: 400; }
+
+
+	</style>
+
+	</head>
+	<body background="bg.jpg">
+<center>
+<img src="ty.jpg">
+<br><br><br><br><br><br><br><br>
+<div class="buttons">
+
+<a href="mainpage.html">
+ <button class="raise">Return to Main Page</button>
+	</a>
+</div>
+</center>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<head>
+	<style>
+body{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #333;
+    background:url("sss.png");
+}
+.question{
+    font-weight: 600;
+     text-align: center;
+}
+.answers {
+  margin-bottom: 20px;
+   text-align: center;
+}
+.answers label{
+  display: block;
+   text-align: center;
+}
+#submit{
+    font-family: sans-serif;
+    font-size: 20px;
+    background-color: #279;
+    color: #fff;
+    border: 0px;
+    border-radius: 3px;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    align-self: center;
+}
+#submit:hover{
+    background-color: #38a;
+     align-self: center;
+}
+}
+
+
+</style>
+
+</head>
+<body>
+<div id="quiz"></div>
+<center>
+<button id="submit">Submit Quiz</button>
+</center>
+<div id="results"></div>
+<script type="text/javascript">
+(function() {
+  function buildQuiz() {
+    // we'll need a place to store the HTML output
+    const output = [];
+
+    // for each question...
+    myQuestions.forEach((currentQuestion, questionNumber) => {
+      // we'll want to store the list of answer choices
+      const answers = [];
+
+      // and for each available answer...
+      for (letter in currentQuestion.answers) {
+        // ...add an HTML radio button
+        answers.push(
+          `<label>
+            <input type="radio" name="question${questionNumber}" value="${letter}">
+            ${letter} :
+            ${currentQuestion.answers[letter]}
+          </label>`
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        `<div class="question"> ${currentQuestion.question} </div>
+        <div class="answers"> ${answers.join("")} </div>`
+      );
+    });
+
+    // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.innerHTML = output.join("");
+  }
+
+  function showResults() {
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll(".answers");
+
+    // keep track of user's answers
+    let numCorrect = 0;
+
+    // for each question...
+    myQuestions.forEach((currentQuestion, questionNumber) => {
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      // if answer is correct
+      if (userAnswer === currentQuestion.correctAnswer) {
+        // add to the number of correct answers
+        numCorrect++;
+
+        // color the answers green
+        answerContainers[questionNumber].style.color = "green";
+      } else {
+        // if answer is wrong or blank
+        // color the answers red
+        answerContainers[questionNumber].style.color = "red";
+      }
+    });
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  }
+
+  const quizContainer = document.getElementById("quiz");
+  const resultsContainer = document.getElementById("results");
+  const submitButton = document.getElementById("submit");
+  const myQuestions = [
+    {
+      question: "Who invented Gravity?",
+      answers: {
+        a: "Newton",
+        b: "Einstein",
+        c: "Hitler"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Which bird cannot fly?",
+      answers: {
+        a: "Heron",
+        b: "Ostrich",
+        c: "Flemingo"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Which gas humans inhale to live?",
+      answers: {
+        a: "carbon dioxide",
+        b: "Marsh gas",
+        c: "Oxygen",
+        d: "Nitrogen"
+      },
+      correctAnswer: "c"
+    }
+  ];
+
+  // display quiz right away
+  buildQuiz();
+
+  // on submit, show results
+  submitButton.addEventListener("click", showResults);
+})();
+
+
+</script>
+</body>

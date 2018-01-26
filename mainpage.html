@@ -1,0 +1,194 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to 4kids</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn:700italic,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+
+    <style>
+    html, body {
+  height: 100%;
+  margin: -20px 0 0 0;
+  color: white; 
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+a:hover {
+  color: #A99FA1;
+}
+header {
+  float: left;
+  background: #3f282d;
+  border-bottom: 2px solid #382428;
+  padding: 25px 0;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+
+.logo {
+  float: left;
+  text-align: left;
+  margin-left: 5%;
+  padding-top: 2%;
+  font-size: 28px;
+}
+
+
+/* Navigation */
+
+nav {
+  float: right;
+  text-align: right;
+  margin-right: 2%;
+}
+
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding-top: 8px;
+}
+
+
+nav li {
+  display: inline-block;
+  padding: 0 8px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+
+nav a {
+  padding: 15px 10px;
+}
+
+
+
+
+section {
+  background-image: url("main.jpg");
+  height: 130%;
+  text-align: center;
+}
+
+
+section h1 {
+  padding-top: 5%;
+  font-family: 'Vollkorn', serif;
+  font-size: 48px;
+}
+
+
+section p {
+  width: 500px;
+  margin: -28px auto 32px;
+  font-family: 'Muli', sans-serif;
+  font-size: 18px;
+  line-height: 1.35;
+  color: white;
+}
+section img{
+  padding-top: 15%
+}
+
+#submit {
+  height: 50px;
+  width: 220px;
+  background: #BA4662;
+  color: inherit;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  letter-spacing: 3px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background .3s ease-in-out;
+}
+
+
+#submit:hover {
+  background: #AE3C58;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #BA4662;
+  box-shadow: 0 0 10px #BA4662;
+}
+
+ </style>
+
+  </head>
+  <body>
+    <header>
+      <a href="mainpage.html" class="logo">
+       
+        <img src="logo.jpg" height="100px" width="150px">
+      </a>
+    <br><br>  
+
+</div>
+      <nav>
+        <ul>
+           <li><a href="mainpage.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><img src="h.jpg" width="20px" height="20px">+91-9820519356</a></li>
+        
+        </ul>      
+      </nav>
+    </header>
+    <section>
+      <center>
+      <div class="w3-content w3-section" style="max-width:500px">
+
+  <img class="mySlides w3-animate-fading" src="mem.jpg" style="width:100%">
+    
+       <img class="mySlides w3-animate-fading" src="puz.jpg" style="width:100%">
+        
+  <img class="mySlides w3-animate-fading" src="vid.jpg" style="width:100% ;height:37.29%">
+
+  <img class="mySlides w3-animate-fading" src="fact.jpg" style="width:100%; height:37.29%">
+  <img class="mySlides w3-animate-fading" src="funl.jpg" style="width:100%; height:37.29%">
+
+</div>
+</center>
+<script>
+  var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 4000);    
+}
+</script> 
+<b>
+      <h1>Welcome to <em>4kids</em></h1>
+      <p>4kids is a website for growing children that will help them to increase their thinking abilities and induce the brain development by exposing them to contents that will be perfect sorce of entertainment for kids and also for their growth.</p>
+      <a href="login.html">
+      <input type="submit" id="submit" value="Login To Enter">
+    </a>
+    </section>
+</b>
+  </body>
+</html>
